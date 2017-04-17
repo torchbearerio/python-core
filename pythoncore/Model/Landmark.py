@@ -1,0 +1,22 @@
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy import Column, Integer, String, ForeignKey, Float
+from sqlalchemy.orm import relationship
+from Base import Base
+import json
+
+
+class Landmark(Base):
+    __tablename__ = 'Landmarks'
+
+    landmark_id               = Column(String, primary_key=True)
+    hit_id                    = Column(Integer, ForeignKey('Hits.hit_id'))
+    description               = Column(String)
+    rect                      = Column(String)
+    visual_saliency_score     = Column(Float)
+    structural_saliency_score = Column(Float)
+
+    def get_rect(self):
+        return json.loads(self.rect)
+
+    def set_rect(self, r):
+        self.rect = json.dumps(r)
