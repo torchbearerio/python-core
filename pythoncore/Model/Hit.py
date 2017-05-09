@@ -8,16 +8,11 @@ class Hit(Base):
     __tablename__ = 'Hits'
 
     hit_id                          = Column(Integer, primary_key=True)
-    type                            = Column(String)
+    pipeline                            = Column(String)
     execution_point_id              = Column(Integer, ForeignKey('ExecutionPoints.execution_point_id'))
     saliency_hit_id                 = Column(String)
     description_hit_id              = Column(String)
     selected_landmark_id            = Column(String, ForeignKey('Landmarks.landmark_id'))
-    distance                        = Column(Integer)
-    saliency_reward                 = Column(Integer)
-    description_reward              = Column(Integer)
-    saliency_assignment_count       = Column(Integer)
-    description_assignment_count    = Column(Integer)
     status                          = Column(String)
 
     candidate_landmarks             = relationship('Landmark', foreign_keys='Landmark.hit_id', backref='hit')

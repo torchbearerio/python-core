@@ -11,6 +11,7 @@ class Landmark(Base):
     landmark_id               = Column(String, primary_key=True)
     hit_id                    = Column(Integer, ForeignKey('Hits.hit_id'))
     description               = Column(String)
+    color                     = Column(String)
     rect                      = Column(String)
     visual_saliency_score     = Column(Float)
     structural_saliency_score = Column(Float)
@@ -20,3 +21,9 @@ class Landmark(Base):
 
     def set_rect(self, r):
         self.rect = json.dumps(r)
+
+    def get_colors(self):
+        return json.loads(self.color)
+
+    def set_colors(self, c):
+        self.color = json.dumps(c)
