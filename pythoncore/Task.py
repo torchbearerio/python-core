@@ -17,7 +17,7 @@ class Task (object):
         client = AWSClient.get_client('stepfunctions')
         client.send_task_success(
             taskToken=self.task_token,
-            output=json.dumps({'epId': self.task_token})
+            output=json.dumps({'epId': self.ep_id, 'hitId': self.hit_id})
         )
 
     def send_failure(self, err_code, err_message):
