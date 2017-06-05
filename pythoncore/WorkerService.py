@@ -1,6 +1,6 @@
 import json
 from multiprocessing import Pool
-
+import traceback
 from AWS import AWSClient
 from Utils import get_instance_id
 
@@ -26,4 +26,8 @@ def _run_task(task_tuple):
         task_input = json.loads(task["input"])
 
         # Call handler
-        task_handler(task_input, task["taskToken"])
+        try:
+            task_handler(task_input, task["taskToken"])
+        except Exception as ex:
+            print "Error running task handler for " + activity_arn
+            traceback.print_exc()
