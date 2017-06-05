@@ -22,6 +22,9 @@ def _run_task(task_tuple):
             workerName=get_instance_id()
         )
 
+        if not task.get("input"):
+            continue
+
         # Parse input
         task_input = json.loads(task["input"])
 

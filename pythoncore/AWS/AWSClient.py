@@ -1,5 +1,6 @@
 import boto3
-import os
+from botocore.client import Config
+from botocore.session import Session
 from ..Constants import AWS_REGION
 from ..Utils import is_dev
 
@@ -9,6 +10,6 @@ __session = boto3.Session(profile_name='torchbearer') if is_dev() else boto3.Ses
 
 def get_client(service):
     read_timeout = 70 if service == 'stepfunctions' else 60
-    config = boto3.Config(connect_timeout=50, read_timeout=read_timeout)
+    config = Config(connect_timeout=50, read_timeout=read_timeout)
 
     return __session.client(service, region_name=AWS_REGION, config=config)
