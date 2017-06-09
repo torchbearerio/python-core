@@ -6,9 +6,10 @@ TASK_ARNS = {
     'CV_GET_COLORS': 'arn:aws:states:us-west-2:814009652816:activity:CV_GET_COLORS',
     'LANDMARK_DECIDERER': 'arn:aws:states:us-west-2:814009652816:activity:LANDMARK_DECIDERER',
     'LANDMARK_MARKER': 'arn:aws:states:us-west-2:814009652816:activity:LANDMARK_MARKER',
-    'CROP_FROM_CV': 'arn:aws:states:us-west-2:814009652816:activity:CROP_FROM_CV',
+    'DERIVE_RECTS_FROM_MASK': 'arn:aws:states:us-west-2:814009652816:activity:DERIVE_RECTS_FROM_MASK',
     'PIPELINE_FINISH': 'arn:aws:states:us-west-2:814009652816:activity:PIPELINE_FINISH',
-    'CROP_FROM_TURK': 'arn:aws:states:us-west-2:814009652816:activity:CROP_FROM_TURK'
+    'CROP_LANDMARKS': 'arn:aws:states:us-west-2:814009652816:activity:CROP_LANDMARKS',
+    'SCORE_VISUAL_SALIENCY': 'arn:aws:states:us-west-2:814009652816:activity:SCORE_VISUAL_SALIENCY'
 }
 
 S3_BUCKETS = {
@@ -23,4 +24,10 @@ HIT_STATUS = {
     "HIT_STATUS_PROCESSING": "PROCESSING",
     "HIT_STATUS_UNKNOWN": "UNKNOWN",
     "HIT_STATUS_COMPLETE": "COMPLETE"
+}
+
+LANDMARK_POSITIONS = {
+    "AT": "at",
+    "JUST_BEFORE": "just_before",
+    "BEFORE": "before"
 }

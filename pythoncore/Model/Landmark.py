@@ -15,6 +15,7 @@ class Landmark(Base):
     rect                      = Column(String)
     visual_saliency_score     = Column(Float)
     structural_saliency_score = Column(Float)
+    position                  = Column(String)
 
     def get_rect(self):
         return json.loads(self.rect)
