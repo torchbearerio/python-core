@@ -32,5 +32,5 @@ def _run_task(task_tuple):
         try:
             task_handler(task_input, task["taskToken"])
         except Exception as ex:
-            print "Error running task handler for " + activity_arn
+            print ("Error running task handler for " + activity_arn)
             traceback.print_exc()
