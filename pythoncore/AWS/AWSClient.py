@@ -1,12 +1,23 @@
 import boto3
 import botocore
+import sys
 from botocore.client import Config
 from botocore.session import Session
 from ..Constants import AWS_REGION
 from ..Utils import is_dev
+import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument("--AWS_SECRET")
+parser.add_argument("--AWS_ACCESS_KEY")
+args = parser.parse_args()
 
 # Create the SSM Client
-__session = boto3.Session(profile_name='torchbearer') if is_dev() else boto3.Session()
+if args.AWS_SECRET and args.AWS_ACCESS_KEY:
+    __session = boto3.Session(aws_secret_access_key=args.AWS_SECRET, aws_access_key_id=args.AWS_ACCESS_KEY)
+else:
+    __session = boto3.Session(profile_name='torchbearer') if is_dev() else boto3.Session()
+
 __s3_resource = __session.resource('s3')
 
 
