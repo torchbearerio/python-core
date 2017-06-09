@@ -1,8 +1,8 @@
 import json
 from multiprocessing import Pool
 import traceback
-from .AWS import AWSClient
-from .Utils import get_instance_id
+from AWS import AWSClient
+from Utils import get_instance_id
 
 SFNClient = AWSClient.get_client('stepfunctions')
 
