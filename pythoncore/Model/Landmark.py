@@ -28,9 +28,3 @@ class Landmark(Base):
 
     def set_colors(self, c):
         self.color = json.dumps(c, cls=SetEncoder)
-
-    def get_description(self):
-        return json.loads(self.description)
-
-    def set_description(self, d):
-        self.description = json.dumps(d)
