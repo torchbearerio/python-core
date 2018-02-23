@@ -31,3 +31,5 @@ LANDMARK_POSITIONS = {
     "JUST_BEFORE": "just_before",
     "BEFORE": "before"
 }
+
+STREETVIEW_FOV = 120.0

@@ -13,6 +13,7 @@ class Landmark(Base):
     description               = Column(String)
     color                     = Column(String)
     rect                      = Column(String)
+    relative_bearing          = Column(Integer)
     visual_saliency_score     = Column(Float)
     structural_saliency_score = Column(Float)
     position                  = Column(String)
