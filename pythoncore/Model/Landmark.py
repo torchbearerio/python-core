@@ -9,6 +9,7 @@ class Landmark(Base):
     __tablename__ = 'Landmarks'
 
     landmark_id               = Column(String, primary_key=True)
+    status                    = Column(String)
     hit_id                    = Column(Integer, ForeignKey('Hits.hit_id'))
     description               = Column(String)
     color                     = Column(String)
