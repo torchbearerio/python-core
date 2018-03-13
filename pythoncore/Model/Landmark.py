@@ -21,7 +21,7 @@ class Landmark(Base):
     position                  = Column(String)
 
     def get_rect(self):
-        return json.loads(self.rect)
+        return json.loads(self.rect) if (self.rect is not None and len(self.rect)) else None
 
     def set_rect(self, r):
         self.rect = json.dumps(r)
