@@ -24,6 +24,8 @@ class Landmark(Base):
         return json.loads(self.rect) if (self.rect is not None and len(self.rect)) else None
 
     def set_rect(self, r):
+        if not r:
+            return
         self.rect = json.dumps(r)
 
     def get_colors(self):
