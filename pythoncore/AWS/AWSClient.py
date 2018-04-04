@@ -10,7 +10,7 @@ import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument("--AWS_SECRET")
 parser.add_argument("--AWS_ACCESS_KEY")
-args = parser.parse_args()
+args, _ = parser.parse_known_args()
 
 # Create the SSM Client
 if args.AWS_SECRET and args.AWS_ACCESS_KEY:
