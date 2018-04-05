@@ -22,10 +22,14 @@ class Hit(Base):
     selected_landmark               = relationship('Landmark', foreign_keys='Hit.selected_landmark_id',
                                                    uselist=False, backref='selected_by')
 
-    def set_start_time_for_task(self, task, time=int(round(time.time() * 1000))):
+    def set_start_time_for_task(self, task, time=None):
+        if not time:
+            time = int(round(time.time() * 1000))
         key = "{task}_start".format(task=task)
         self.timeline = dict((self.timeline if self.timeline else {}).items() + {key: time}.items())
 
-    def set_end_time_for_task(self, task, time=int(round(time.time() * 1000))):
+    def set_end_time_for_task(self, task, time=None):
+        if not time:
+            time = int(round(time.time() * 1000))
         key = "{task}_end".format(task=task)
         self.timeline = dict((self.timeline if self.timeline else {}).items() + {key: time}.items())
